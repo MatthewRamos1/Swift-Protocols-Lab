@@ -152,6 +152,32 @@ protocol Bird {
 protocol Flyable {
  var airspeedVelocity: Double { get }
 }
+
+//Answer:
+
+struct Penguin: Bird {
+    var name: String {
+        return "Penguin"
+    }
+    var canFly: Bool {
+        return false
+    }
+}
+
+struct Eagle: Bird, Flyable {
+    var name: String {
+        return "Eagle"
+    }
+    var canFly: Bool {
+        return true
+    }
+    var airspeedVelocity: Double {
+        return 240.0
+    }
+}
+
+
+
 ```
 
 </br> </br>
