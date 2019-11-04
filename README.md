@@ -40,6 +40,51 @@ Create a new array called sortedPeople of type [`Human`] that is the people arra
 
 </br> </br>
 
+```swift
+class Human: CustomStringConvertible, Equatable, Comparable {
+    static func < (lhs: Human, rhs: Human) -> Bool {
+          lhs.age < rhs.age
+    }
+    static func == (lhs: Human, rhs: Human) -> Bool {
+          lhs.age == rhs.age && lhs.name == rhs.name
+    }
+    static func > (lhs: Human, rhs: Human) -> Bool {
+          lhs.age > rhs.age
+    }
+    
+    var name: String
+    var age: Int
+    
+    init (name:String, age:Int) {
+        self.name = name
+        self.age = age
+        
+    }
+    var description: String {
+        return "\(name) is \(age) years old."
+    }
+}
+
+var jim = Human(name: "Jim", age: 34)
+var emily = Human(name: "Emily", age: 27)
+print(emily)
+print(jim)
+
+if emily == jim {
+    print("They are identical!")
+} else if emily != jim {
+    print("They're different people!")
+}
+
+var kevin = Human(name: "Kevin", age: 22)
+var liz = Human(name: "Liz", age: 19)
+var meg = Human(name: "Meg", age: 53)
+
+var array = [kevin, jim, emily, liz, meg]
+print(array.sorted())
+
+```
+
 
 ## Question 2
 
@@ -56,6 +101,41 @@ and drive() should print "Begin pedaling!". Create an instance of Bike, print it
 then call drive().
 
 </br> </br>
+
+```swift
+
+protocol Vehicle {
+    var numberOfWheels: Int { get }
+    func drive()
+}
+
+struct Car: Vehicle {
+    var numberOfWheels: Int {
+        return 4
+    }
+    func drive() {
+        print("Vroom, vroom!")
+    }
+}
+
+struct Bike: Vehicle {
+    var numberOfWheels: Int {
+        return 2
+    }
+    func drive() {
+        print("Begin pedaling!")
+    }
+}
+
+var car = Car()
+print(car.numberOfWheels)
+car.drive()
+
+var bike = Bike()
+print(bike.numberOfWheels)
+bike.drive()
+
+```
 
 
 ## Question 3
