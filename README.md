@@ -202,6 +202,29 @@ var bruceBanner = SuperHero.notHulk
 bruceBanner.transform() . // hulk
 
 bruceBanner.transform()  // notHulk
+
+//Answer:
+
+protocol Transformation {
+    mutating func transform()
+}
+
+enum Superhero: Transformation {
+    case notHulk
+    case hulk
+    mutating func transform() {
+        switch self {
+        case .notHulk:
+            self = .hulk
+        case .hulk:
+            self = .notHulk
+        }
+    }
+}
+var bruceBanner = Superhero.notHulk
+
+bruceBanner.transform()
+
 ```
 
 </br> </br>
