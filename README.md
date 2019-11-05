@@ -223,6 +223,37 @@ f. Put an instance of each of your classes in an array.
 
 g. Iterate over the array and have them print their `message` property
 
+```swift
+
+protocol Communication {
+    var message: String { get }
+}
+
+class Cow: Communication {
+    var message: String = "Moo!"
+    
+}
+
+class Dog: Communication {
+    var message: String = "Woof!"
+}
+
+class Cat: Communication {
+    var message: String = "Meow!"
+}
+
+var cow = Cow()
+var dog = Dog()
+var cat = Cat()
+
+var array: [Communication] = [cow, dog, cat]
+
+for item in array {
+    print (item.message)}
+
+
+```
+
 
 ## Question 6
 
